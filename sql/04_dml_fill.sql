@@ -148,7 +148,7 @@ SELECT DISTINCT ON (TRIM(m.store_name), TRIM(m.store_city))
 FROM mock_data m
 LEFT JOIN dim_country c ON c.country_name = NULLIF(TRIM(m.store_country), '')
 WHERE m.store_name IS NOT NULL AND TRIM(m.store_name) != ''
-ORDER BY m.store_name, m.store_city;
+ORDER BY TRIM(m.store_name), TRIM(m.store_city);
 
 
 -- 11. dim_date
